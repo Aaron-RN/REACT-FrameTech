@@ -24,7 +24,7 @@ class App extends Component {
         <div className="bg-responsive-size hide"></div>
         <button type="button" className="debug-toggle">Debug Toggle</button>
         <header className="App-header container">
-          <div className='row-flex'><Attacks click={this.selectAttackHandler} selected={this.state.selected} /></div>
+          <div className='row-flex'><Attacks click={this.selectAttackHandler} /></div>
         </header>
       </div>
     );
