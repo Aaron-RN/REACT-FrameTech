@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import './css/App.css';
+import './css/ARN-framework.css';
+import Attacks from './components/attacks';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    selected: 'basicAttacks',
+  }
+
+  selectAttackHandler = (event) => {
+    const prevElem = document.querySelector(`#${this.state.selected}`);
+    const elem = event.currentTarget;
+    prevElem.classList.toggle('selected');
+    elem.classList.toggle('selected');
+    this.setState({
+      selected: elem.id
+    })
+  }
+
+  render(){
+    return (
+      <div className="App">
+        <div className="bg-responsive-size hide"></div>
+        <button type="button" className="debug-toggle">Debug Toggle</button>
+        <header className="App-header container">
+          <div className='row-flex'><Attacks click={this.selectAttackHandler} selected={this.state.selected} /></div>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
