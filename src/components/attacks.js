@@ -2,7 +2,6 @@ import React from 'react';
 
 
 const basicAttacks = (props) => {
-  // const selected = props.selected;
   let buttonSelected = (
     <div>
       <div id='basicAttacks' className='col-12 selectable selected' onClick={props.click}>Basic Attacks</div>
@@ -10,33 +9,7 @@ const basicAttacks = (props) => {
       <div id='specialAttacks' className='col-12 selectable' onClick={props.click}>Special Moves</div>
     </div>
   );
-  // if (selected === 'basicAttacks'){
-  //   buttonSelected = (
-  //     <div>
-  //       <div id='basicAttacks' className='col-12 selectable selected' onClick={props.click}>Basic Attacks</div>
-  //       <div id='comboAttacks' className='col-12 selectable' onClick={props.click}>Combos</div>
-  //       <div id='specialAttacks' className='col-12 selectable' onClick={props.click}>Special Moves</div>
-  //     </div>
-  //   );
-  // }
-  // if (selected === 'comboAttacks'){
-  //   buttonSelected = (
-  //     <div>
-  //       <div id='basicAttacks' className='col-12 selectable' onClick={props.click}>Basic Attacks</div>
-  //       <div id='comboAttacks' className='col-12 selectable selected' onClick={props.click}>Combos</div>
-  //       <div id='specialAttacks' className='col-12 selectable' onClick={props.click}>Special Moves</div>
-  //     </div>
-  //   );
-  // }
-  // if (selected === 'specialAttacks'){
-  //   buttonSelected = (
-  //     <div>
-  //       <div id='basicAttacks' className='col-12 selectable' onClick={props.click}>Basic Attacks</div>
-  //       <div id='comboAttacks' className='col-12 selectable' onClick={props.click}>Combos</div>
-  //       <div id='specialAttacks' className='col-12 selectable selected' onClick={props.click}>Special Moves</div>
-  //     </div>
-  //   );
-  // }
+  
   return (
     <div className='col-0 text-center'>
       {buttonSelected}
