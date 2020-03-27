@@ -27,7 +27,12 @@ class App extends Component {
       {id:'as578d', name:'Whap'}, 
       {id:'asd58', name:'Clap'}
     ],
-    selectedMove: '',
+    selectedMove: {
+      name:'', 
+      type:'', damage: 0, chipDamage: 0,
+      blockAdv: 0, hitAdv: 0, cancel: 0, 
+      startup: 0, active: 0, recovery: 0
+    },
   }
 
   selectAttackHandler = (event) => {
@@ -90,10 +95,10 @@ class App extends Component {
   }
 
   selectMoveHandler = (event) => {
-    let prevElemID = this.state.selectedMove;
+    let prevElemID = this.state.selectedMove.name;
     prevElemID = prevElemID.replace(/\s/g, '');
 
-    const prevElem = this.state.selectedMove !== '' ? document.querySelector(`#moveBox > #${prevElemID}`) : null;
+    const prevElem = this.state.selectedMove.name !== '' ? document.querySelector(`#moveBox > #${prevElemID}`) : null;
     const elem = event.currentTarget;
     if(prevElem) prevElem.classList.toggle('selected');
     elem.classList.toggle('selected');

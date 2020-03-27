@@ -11,6 +11,7 @@ const moves = (props) => {
   }
 
   const console = props.console;
+  const move = props.moveSelected;
   let color = 'consoleBG-universal';
   if (console === 'xbox'){ color = 'consoleBG-xbox'; }
   if (console === 'ps4'){ color = 'consoleBG-ps4'; }
@@ -28,7 +29,7 @@ const moves = (props) => {
           <div className='row-flex-auto center'>
             <div className='col-4'>
               <div className='row-header'>Type</div>
-              <div id='textType'>Overhead</div>
+              <div id='textType'>{move.type}Overhead</div>
             </div>
             <div className='col-4'>
               <div className='row-header'>Damage</div>
