@@ -63,7 +63,7 @@ function InitializeFramework( state = 0) {
       PopulateColClasses();
       ColCreation();
   }
-  if(state === 1){ColCreation();}
+  if(state === 1){ PopulateColClasses();ColCreation();}
 }
 
 

@@ -10,46 +10,51 @@ const characters = (props) => {
     );
   }
 
+  const gameSelected = props.gameSelected;
+  let statsBoxEnabled = null;
+  let rowClasses = 'row-flex-auto justify-between vert-stretch flex-col align-center';
+  if(gameSelected === 'inj2'){
+    rowClasses = 'row-flex-auto justify-between vert-stretch align-start';
+    statsBoxEnabled = (
+      <div id='statsBox'>
+        <div className='col-6'>
+          <div className="col-0">
+            <div className='text-red'>Health</div>
+            <div>1000</div>
+            </div>
+          <div className="col-0">
+            <div className='text-grey'>Defence</div>
+            <div>1000</div>
+            </div>
+        </div>
+        <div className='col-6'>
+          <div className="col-0">
+            <div className='text-orange'>Strength</div>
+            <div>1000</div>
+            </div>
+          <div className="col-0">
+            <div className='text-green'>Agility</div>
+            <div>1000</div>
+            </div>
+        </div>
+    </div>
+    );
+  }
+
   return (
-    <div id='consoleSection' className='col-0 px-1'>
-      <div className='row-flex-auto align-end justify-between'>
-        <div className='col-0 text-center m-r-1'>
+    <div id='consoleSection' className='col-6-m6-12'>
+      <div className={rowClasses}>
+        <div className='col-6-m6-12 text-center'>
           <div className='size-10'>Gaming Console</div>
           <select id="gamingConsole" className='size-12  m-b-1' onChange={props.selectConsole}>
             <option value="universal">Universal</option>
             <option value="xbox">Xbox</option>
             <option value="ps4">PS4</option>
           </select>
-          <div id='statsBox'>
-            <div className='col-4'>
-              <div className="col-0">
-                <div className='text-red'>Health</div>
-                <div>1000</div>
-                </div>
-              <div className="col-0">
-                <div className='text-grey'>Defence</div>
-                <div>1000</div>
-                </div>
-            </div>
-            <div className='col-4'>
-              <div className="col-0">
-                <div className='text-orange'>Strength</div>
-                <div>1000</div>
-                </div>
-              <div className="col-0">
-                <div className='text-green'>Agility</div>
-                <div>1000</div>
-                </div>
-            </div>
-          </div>
+          {statsBoxEnabled}
         </div>
         
-        <div className='col-0 text-center'>
-          <div className='size-10'>Game</div>
-            <select id="gameSelected" className='size-12 m-b-1' onChange={props.selectGame}>
-              <option value="mk11">Mortal Kombat 11</option>
-              <option value="inj2">Injustice 2</option>
-            </select>
+        <div className='col-6-m6-12 text-center'>
           <div className='size-12'>Character</div>
           <div id='characterBox'>
             {allChars.map(char => createChar(char.name, char.id))}
