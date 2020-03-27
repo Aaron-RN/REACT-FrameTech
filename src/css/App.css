@@ -10,6 +10,7 @@ body {
 
 .App {
   font-size: calc(10px + 2vmin);
+  /* font-size: 1.4em; */
   color: white;
   max-width: 1400px;
   margin: auto;
@@ -130,19 +131,40 @@ body {
 }
 
 #movesSection {
-  padding: 5px;
+  /* padding: 5px; */
   margin: 4px 0;
   margin-left: 17px!important;
-  margin-right: 23px!important;
+  margin-right: 18px!important;
+  max-height: 240px;
 }
 
+.height-100{ height: 100%!important;}
 #moveBox {
   padding-left: 4px;
   font-size: 18px;
   text-align: left;
   margin: auto;
-  max-width: 160px;
-  max-height: 200px;
+  max-width: 240px;
+  height: 100%;
+  white-space: normal;
+  overflow-y: auto;
+  background-color: #777;
+  border: 1px solid #555;
+}
+.row-header{
+  background-color: #333;
+  padding: 2px;
+  margin: 8px 0;
+  border-radius: 5px;
+}
+#counterSection{padding: 5px;}
+#counterBox {
+  padding-left: 4px;
+  font-size: 18px;
+  text-align: left;
+  margin: auto;
+  max-width: 240px;
+  height: 100%;
   white-space: normal;
   overflow-y: auto;
   background-color: #777;

@@ -18,16 +18,58 @@ const moves = (props) => {
   return (
     <div id='movesSection' className='col-12'>
       <div className='row-flex-auto justify-between vert-stretch align-start'>
-        <div className='col-3-m3-12 text-center'>
+        <div className='col-3-m3-12 text-center height-100'>
           <div id='moveBox'>
             {allMoves.map(move => createMove(move.name, move.id))}
           </div>
         </div>
-        <div className='col-4-m4-12 text-center'>
-          <div className='size-10'>Move Name</div>
+        <div className='col-5-m5-12 text-center size-10'>
+          <div id='textMove' className='row-header'>Move Name</div>
+          <div className='row-flex-auto center'>
+            <div className='col-4'>
+              <div className='row-header'>Type</div>
+              <div id='textType'>Overhead</div>
+            </div>
+            <div className='col-4'>
+              <div className='row-header'>Damage</div>
+              <div id='textDamage'>5</div>
+            </div>
+            <div className='col-4'>
+              <div className='row-header'>Chip Damage</div>
+              <div id='textChipDamage'>2</div>
+            </div>
+          </div>
+          <div className='row-flex-auto center'>
+            <div className='col-4'>
+              <div className='row-header'>Block Advantage</div>
+              <div id='textBlock'>-8</div>
+            </div>
+            <div className='col-4'>
+              <div className='row-header'>Hit Advantage</div>
+              <div id='textHit'>5</div>
+            </div>
+            <div className='col-4'>
+              <div className='row-header'>Cancel</div>
+              <div id='textCancel'>2</div>
+            </div>
+          </div>
+          <div className='row-flex-auto center'>
+            <div className='col-4'>
+              <div className='row-header'>Startup</div>
+              <div id='textStartup'>5</div>
+            </div>
+            <div className='col-4'>
+              <div className='row-header'>Active</div>
+              <div id='textActive'>5</div>
+            </div>
+            <div className='col-4'>
+              <div className='row-header'>Recovery</div>
+              <div id='textRecovery'>2</div>
+            </div>
+          </div>
         </div>
 
-        <div id='counterSection' className={'col-3-m3-12 text-center ' + color}>
+        <div id='counterSection' className={'col-3-m3-12 text-center height-100 ' + color}>
           <div id='counterBox'>
             {allMoves.map(move => createMove(move.name, move.id))}
           </div>
