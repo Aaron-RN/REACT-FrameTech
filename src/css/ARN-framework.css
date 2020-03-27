@@ -175,6 +175,7 @@ strong { font-weight: bold; }
 .text-center { text-align: center; }
 .text-left { text-align: left; }
 .text-right { text-align: right; }
+.justify-between { justify-content: space-between; }
 .align-start { align-items: flex-start; }
 .align-end { align-items: flex-end; }
 .align-self-end {align-self: flex-end; }

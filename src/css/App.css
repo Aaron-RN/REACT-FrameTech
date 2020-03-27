@@ -1,21 +1,62 @@
-body{ overflow-x: hidden; }
+body { 
+  background-color: #2c2c2c;
+  overflow-x: hidden; 
+}
 
+.row-flex-auto{ position: relative;}
+.row-flex-auto > div{
+  height: auto;
+}
+[class*="col-"] { margin-right: 5px!important; }
+.m-r-1{margin-right: 1em!important;}
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
-  /* display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
 }
 
 .selectable {
   cursor: pointer;
+  transition-duration: 0s;
 }
 .selectable:hover {
   color: lightgreen;
+  transition-duration: 1s;
 }
 
-.selected { border-bottom: 1px solid yellowgreen; color: wheat; }
+.selected { 
+  color: wheat; margin-bottom: -1px;
+  border-bottom: 1px solid yellowgreen;
+  border-radius: 5px;
+}
+
+#topSection{
+  width: auto;
+}
+
+#attackSection {
+  background-color: #3c3c3c;
+  padding: 1em;
+}
+
+#consoleSection {
+  background-color: #3c3c3c;
+  padding: 1em;
+}
+
+#gamingConsole {
+  width: 80%;
+}
+#statsBox {
+  font-size: 18px;
+}
+
+#characterBox {
+  font-size: 18px;
+  text-align: left;
+  max-height: 100px;
+  white-space: normal;
+  overflow-y: scroll;
+  background-color: #777;
+  border: 1px solid #555;
+}
