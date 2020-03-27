@@ -9,7 +9,11 @@ const moves = (props) => {
       <div id={name.replace(/\s/g, '')} key={id} onClick={props.selectMove} className='selectable'>{name}</div>
     );
   }
-
+  const createCounter = (name, id) => {
+    return (
+      <div id={name.replace(/\s/g, '')} key={id} onClick={props.selectCounter} className='selectable'>{name}</div>
+    );
+  }
   const console = props.console;
   const move = props.moveSelected;
   let color = 'consoleBG-universal';
@@ -19,12 +23,12 @@ const moves = (props) => {
   return (
     <div id='movesSection' className='col-12'>
       <div className='row-flex-auto justify-between vert-stretch align-start'>
-        <div className='col-3-m3-12 text-center height-100'>
+        <div className='col col-12-sm text-center height-100'>
           <div id='moveBox'>
             {allMoves.map(move => createMove(move.name, move.id))}
           </div>
         </div>
-        <div className='col-5-m5-12 text-center size-10'>
+        <div className='col col-12-sm text-center size-10'>
           <div id='textMove' className='row-header'>Move Name</div>
           <div className='row-flex-auto center'>
             <div className='col-4'>
@@ -70,9 +74,9 @@ const moves = (props) => {
           </div>
         </div>
 
-        <div id='counterSection' className={'col-3-m3-12 text-center height-100 ' + color}>
+        <div id='counterSection' className={'col col-12-sm text-center height-100 ' + color}>
           <div id='counterBox'>
-            {allMoves.map(move => createMove(move.name, move.id))}
+            {allMoves.map(move => createCounter(move.name, move.id))}
           </div>
         </div>
       </div>

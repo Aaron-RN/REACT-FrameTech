@@ -16,8 +16,8 @@ const characters = (props) => {
   if(gameSelected === 'inj2'){
     rowClasses = 'row-flex-auto justify-between vert-stretch align-start';
     statsBoxEnabled = (
-      <div id='statsBox'>
-        <div className='col-6'>
+      <div id='statsBox' className='col'>
+        <div className='col-0'>
           <div className="col-0">
             <div className='text-red'>Health</div>
             <div>1000</div>
@@ -27,7 +27,7 @@ const characters = (props) => {
             <div>1000</div>
             </div>
         </div>
-        <div className='col-6'>
+        <div className='col-0'>
           <div className="col-0">
             <div className='text-orange'>Strength</div>
             <div>1000</div>
@@ -42,9 +42,9 @@ const characters = (props) => {
   }
 
   return (
-    <div id='consoleSection' className='col-6-m6-12'>
+    <div id='consoleSection' className='col col-12-sm'>
       <div className={rowClasses}>
-        <div className='col-6-m6-12 text-center'>
+        <div className='col-6-m6-12 text-center max-width-auto'>
           <div className='size-10'>Gaming Console</div>
           <select id="gamingConsole" className='size-12  m-b-1' onChange={props.selectConsole}>
             <option value="universal">Universal</option>
@@ -54,7 +54,7 @@ const characters = (props) => {
           {statsBoxEnabled}
         </div>
         
-        <div className='col-6-m6-12 text-center'>
+        <div className='col-6-m6-12 text-center max-width-auto'>
           <div className='size-12'>Character</div>
           <div id='characterBox'>
             {allChars.map(char => createChar(char.name, char.id))}

@@ -4,7 +4,7 @@ import React from 'react';
 const gameSelect = (props) => {
 
   return (
-    <div id='gameSection' className='col-12 text-center center'>
+    <div id='gameSection' className='col-12 text-center center width-max '>
       <div>         
          <div className='size-10'>Game</div>
           <select id="gameSelected" className='size-12 m-b-1' onChange={props.selectGame}>

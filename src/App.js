@@ -33,6 +33,12 @@ class App extends Component {
       blockAdv: 0, hitAdv: 0, cancel: 0, 
       startup: 0, active: 0, recovery: 0
     },
+    selectedCounter: {
+      name:'', 
+      type:'', damage: 0, chipDamage: 0,
+      blockAdv: 0, hitAdv: 0, cancel: 0, 
+      startup: 0, active: 0, recovery: 0
+    },
   }
 
   selectAttackHandler = (event) => {
@@ -70,7 +76,7 @@ class App extends Component {
 
     const prevElem = this.state.selectedCharacter !== '' ? document.querySelector(`#characterBox > #${prevElemID}`) : null;
     const elem = event.currentTarget;
-    if(prevElem) prevElem.classList.toggle('selected');
+    if(prevElem) prevElem.classList.remove('selected');
     elem.classList.toggle('selected');
     this.setState({
       selectedCharacter: elem.textContent
@@ -83,7 +89,7 @@ class App extends Component {
 
     const prevElem = this.state.selectedPunisher !== '' ? document.querySelector(`#punisherBox > #${prevElemID}`) : null;
     const elem = event.currentTarget;
-    if(prevElem) prevElem.classList.toggle('selected');
+    if(prevElem) prevElem.classList.remove('selected');
     elem.classList.toggle('selected');
     this.setState({
       selectedPunisher: elem.textContent
@@ -100,10 +106,27 @@ class App extends Component {
 
     const prevElem = this.state.selectedMove.name !== '' ? document.querySelector(`#moveBox > #${prevElemID}`) : null;
     const elem = event.currentTarget;
-    if(prevElem) prevElem.classList.toggle('selected');
+    if(prevElem) prevElem.classList.remove('selected');
     elem.classList.toggle('selected');
+    const selectedMove = {...this.state.selectedMove};
+    // selectedMove = Some DataBase Function
     this.setState({
-      selectedMove: elem.textContent
+      selectedMove: selectedMove
+    })
+  }
+
+  selectCounterHandler = (event) => {
+    let prevElemID = this.state.selectedCounter.name;
+    prevElemID = prevElemID.replace(/\s/g, '');
+
+    const prevElem = this.state.selectedCounter.name !== '' ? document.querySelector(`#counterBox > #${prevElemID}`) : null;
+    const elem = event.currentTarget;
+    if(prevElem) prevElem.classList.remove('selected');
+    elem.classList.toggle('selected');
+    const selectedCounter = {...this.state.selectedMove};
+    // selectedMove = Some DataBase Function
+    this.setState({
+      selectedCounter: selectedCounter
     })
   }
 
@@ -139,7 +162,7 @@ class App extends Component {
           <div className='row-flex-auto center'>
             <MoveList
               selectMove={this.selectMoveHandler}
-              selectCounter
+              selectCounter={this.selectCounterHandler}
               allMoves={this.state.moveList}
               moveSelected={this.state.selectedMove}
               console = {this.state.gamingConsole}

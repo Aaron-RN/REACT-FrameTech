@@ -16,7 +16,7 @@ const characters = (props) => {
   if (console === 'ps4'){ color = 'consoleBG-ps4'; }
 
   return (
-    <div id='punishSection' className={'col-3-m3-12 ' + color}>
+    <div id='punishSection' className={'col col-12-sm ' + color}>
       <div className='row-flex-auto center vert-stretch'>
         <div className='col-8-m12-12 text-center'>
           <div className='size-12'>Defender</div>
