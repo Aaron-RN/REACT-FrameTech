@@ -8,6 +8,8 @@ import Punish from './components/punish';
 import MoveList from './components/moves';
 
 class App extends Component {
+  // constructor(){
+  // }
   state = {
     selectedAttack: 'basicAttacks',
     searchBy: 'Name',
