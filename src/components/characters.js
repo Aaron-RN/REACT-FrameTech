@@ -57,7 +57,7 @@ const characters = (props) => {
         <div className='col-6-m6-12 text-center max-width-auto'>
           <div className='size-12'>Character</div>
           <div id='characterBox'>
-            {allChars.map(char => createChar(char.name, char.id))}
+            {allChars.map(char => createChar(char.charName, char._id))}
           </div>
         </div>
       </div>

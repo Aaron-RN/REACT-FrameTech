@@ -10,10 +10,10 @@ const characters = (props) => {
     );
   }
 
-  const console = props.console;
+  const gameConsole = props.gameConsole;
   let color = 'consoleBG-universal';
-  if (console === 'xbox'){ color = 'consoleBG-xbox'; }
-  if (console === 'ps4'){ color = 'consoleBG-ps4'; }
+  if (gameConsole === 'xbox'){ color = 'consoleBG-xbox'; }
+  if (gameConsole === 'ps4'){ color = 'consoleBG-ps4'; }
 
   return (
     <div id='punishSection' className={'col col-12-sm ' + color}>
@@ -21,7 +21,7 @@ const characters = (props) => {
         <div className='col-8-m12-12 text-center'>
           <div className='size-12'>Defender</div>
           <div id='punisherBox'>
-            {allChars.map(char => createChar(char.name, char.id))}
+            {allChars.map(char => createChar(char.charName, char._id))}
           </div>
         </div>
         <div className='col-8-m12-12 text-center vert-mid'>
