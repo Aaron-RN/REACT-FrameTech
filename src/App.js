@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './css/App.css';
 import './css/ARN-framework.css';
 import Games from './components/game';
@@ -6,6 +7,9 @@ import Attacks from './components/attacks';
 import Characters from './components/characters';
 import Punish from './components/punish';
 import MoveList from './components/moves';
+import mk11db from './backend/db/mk11/characters.json';
+
+console.log(mk11db);
 
 class App extends Component {
   // constructor(){
