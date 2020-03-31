@@ -16,6 +16,11 @@ body {
   margin: auto;
 }
 
+.app-main {
+  border: 2px solid #444;
+  margin-bottom: 1em;
+}
+
 /* ScrollBar */
 /* width */
 ::-webkit-scrollbar {

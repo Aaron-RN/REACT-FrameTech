@@ -212,9 +212,7 @@ class App extends Component {
   render(){
     return (
       <div className="App container">
-        <div className="bg-responsive-size hide"></div>
-        <button type="button" className="debug-toggle">Debug Toggle</button>
-        <main>
+        <main className='app-main'>
           <header id='topSection' className='row-flex-auto center m-b-5'>
             <Games 
               selectGame={this.selectGameHandler}
