@@ -109,11 +109,11 @@ body {
   background-color: #633;
 }
 .consoleBG-xbox-btn{
-  background-color: rgb(108, 182, 108);
+  background-color: rgb(86, 128, 86);
   color: wheat;
 }
 .consoleBG-ps4-btn{
-  background-color: rgb(116, 100, 194);
+  background-color: rgb(79, 70, 126);
   color: wheat;
 }
 
@@ -151,9 +151,8 @@ body {
 }
 
 #movesSection {
-  /* padding: 5px; */
   margin: 4px 0!important;
-  max-height: 240px;
+  /* max-height: 240px; */
 }
 
 .height-100{ height: 100%!important;}
@@ -163,6 +162,7 @@ body {
   text-align: left;
   margin: auto;
   max-width: 180px;
+  max-height: 240px;
   height: 100%;
   white-space: normal;
   overflow-y: auto;
@@ -175,13 +175,20 @@ body {
   margin: 8px 0;
   border-radius: 5px;
 }
-#counterSection{padding: 5px;}
+.row-header-2{
+  /* background-color: #663535; */
+  padding: 2px;
+  margin: 8px 0;
+  border-radius: 5px;
+}
+#counterSection{padding: 10px 0;}
 #counterBox {
   padding-left: 4px;
   font-size: 18px;
   text-align: left;
   margin: auto;
   max-width: 180px;
+  max-height: 240px;
   height: 100%;
   white-space: normal;
   overflow-y: auto;

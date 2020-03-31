@@ -7,6 +7,7 @@ import Attacks from './components/attacks';
 import Characters from './components/characters';
 import Punish from './components/punish';
 import MoveList from './components/moves';
+import MovesFooter from './components/movesFooter';
 import mk11db from './backend/db/mk11/mk11db';
 
 class App extends Component {
@@ -209,8 +210,8 @@ class App extends Component {
       <div className="App container">
         <div className="bg-responsive-size hide"></div>
         <button type="button" className="debug-toggle">Debug Toggle</button>
-        <header>
-          <div id='topSection' className='row-flex-auto center'>
+        <main>
+          <header id='topSection' className='row-flex-auto center'>
             <Games 
               selectGame={this.selectGameHandler}
             />
@@ -230,10 +231,8 @@ class App extends Component {
               selectPunisher={this.selectPunisherHandler}
               gameConsole = {this.state.gamingConsole}
             />
-          </div>
-        </header>
-        <main>
-          <div className='row-flex-auto center'>
+          </header>
+          <div id='middleSection' className='row-flex-auto center'>
             <MoveList
               selectMove={this.selectMoveHandler}
               selectCounter={this.selectCounterHandler}
@@ -243,6 +242,13 @@ class App extends Component {
               gameConsole = {this.state.gamingConsole}
             />
           </div>
+          <footer id='bottomSection' className='row-flex-auto center'>
+            <MovesFooter
+              moveSelected={this.state.selectedMove}
+              counterSelected={this.state.selectedCounter}
+              gameConsole = {this.state.gamingConsole}
+            />
+          </footer>
         </main>
       </div>
     );

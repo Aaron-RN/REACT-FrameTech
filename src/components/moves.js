@@ -22,9 +22,9 @@ const moves = (props) => {
   if (gameConsole === 'ps4'){ color = 'consoleBG-ps4'; }
 
   return (
-    <div id='movesSection' className='col-12'>
+    <div id='movesSection' className='col'>
       <div className='row-flex-auto justify-between vert-stretch align-start'>
-        <div className='col-3 col-12-sm text-center height-100'>
+        <div className='col-3 col-12-sm text-center height-100 p-t-5'>
           <div id='moveBox'>
             {allMoves.map(move => createMove(move.moveName, move._id))}
           </div>
