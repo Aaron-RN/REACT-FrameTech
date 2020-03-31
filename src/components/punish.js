@@ -16,15 +16,15 @@ const characters = (props) => {
   if (gameConsole === 'ps4'){ color = 'consoleBG-ps4'; }
 
   return (
-    <div id='punishSection' className={'col col-12-sm ' + color}>
+    <div id='punishSection' className={'col-3 col-12-sm ' + color}>
       <div className='row-flex-auto center vert-stretch'>
-        <div className='col-8-m12-12 text-center'>
+        <div className='col-10-m12-12 text-center'>
           <div className='size-12'>Defender</div>
           <div id='punisherBox'>
             {allChars.map(char => createChar(char.charName, char._id))}
           </div>
         </div>
-        <div className='col-8-m12-12 text-center vert-mid'>
+        <div className='col text-center vert-mid'>
           <button type='button' onClick={props.click} className={'btn punishBtn ' + color + '-btn'}>How to Punish</button>
         </div>
       </div>

@@ -24,14 +24,14 @@ class App extends Component {
       moveList: [{moveName:'', _id:''}],
       selectedMove: {
         moveName:'', 
-        type:'', damage: 0, chipDamage: 0,
+        type:'none', damage: 0, chipDamage: 0,
         blockAdvantage: 0, hitAdvantage: 0, cancel: 0, 
         startup: 0, active: 0, recovery: 0, chain:''
       },
       counterList: [{moveName:'', _id:''}],
       selectedCounter: {
         moveName:'', 
-        type:'', damage: 0, chipDamage: 0,
+        type:'none', damage: 0, chipDamage: 0,
         blockAdvantage: 0, hitAdvantage: 0, cancel: 0, 
         startup: 0, active: 0, recovery: 0, chain:''
       },
@@ -47,6 +47,7 @@ class App extends Component {
       selectedAttack: elem.id
     }, () => {
       const character = [...this.state.characterList].filter( char => char.charName === this.state.selectedCharacter)
+      if (character.length === 0){ return }
       let  moves;
       if(this.state.selectedGame === 'mk11'){
         if(this.state.selectedAttack === 'basicAttacks'){
@@ -142,13 +143,16 @@ class App extends Component {
     let calcStartup;
 
     if(this.state.selectedGame === 'mk11'){
-      allAttackerMoves = [...mk11db.basicAttacks].filter( move => move.charID === attacker[0].charID)
-      .filter( move => move.chain !== 'T' && move.type !== 'Buff');
-      allDefenderMoves = [...mk11db.basicAttacks].filter( move => move.charID === defender[0].charID)
-      .filter( move => move.chain !== 'T' && move.type !== 'Buff');
+      allAttackerMoves = [...mk11db.allMoves].filter( move => move.charID === attacker[0].charID)
+      .filter( move => move.chain !== 'T' && move.type !== 'Buff' && move.type !== 'Debuff')
+      .filter( move => move.input.substring(0,2) !== 'up' 
+      && move.input.substring(0,3) !== 'get' && move.input.substring(0,3) !== 'hop');
+      allDefenderMoves = [...mk11db.allMoves].filter( move => move.charID === defender[0].charID)
+      .filter( move => move.chain !== 'T' && move.type !== 'Buff' && move.type !== 'Debuff')
+      .filter( move => move.input.substring(0,2) !== 'up' 
+      && move.input.substring(0,3) !== 'get' && move.input.substring(0,3) !== 'hop');
       allAttackerMoves.sort((a, b) =>  a.startup - b.startup );
       allDefenderMoves.sort((a, b) =>  a.startup - b.startup );
-      console.log(allAttackerMoves);
 
       for(let i = 0; i < allAttackerMoves.length; i += 1){
         if(quickestStartup > allAttackerMoves[i].startup){
@@ -156,7 +160,6 @@ class App extends Component {
            quickestMoveIndex = i;
         }
       }
-      console.log(quickestStartup, quickestMoveIndex);
 
       if(this.state.selectedMove.blockAdvantage > 0){
         calcStartup = this.state.selectedMove.blockAdvantage - allAttackerMoves[quickestMoveIndex].startup;
@@ -176,8 +179,7 @@ class App extends Component {
   }
 
   selectMoveHandler = (event) => {
-    let prevElemID = this.state.selectedMove.moveName;
-    prevElemID = prevElemID.replace(/\s/g, '');
+    const prevElemID = 'm' + this.state.selectedMove._id;
 
     const prevElem = this.state.selectedMove.moveName !== '' ? document.querySelector(`#moveBox > #${prevElemID}`) : null;
     const elem = event.currentTarget;
@@ -190,8 +192,7 @@ class App extends Component {
   }
 
   selectCounterHandler = (event) => {
-    let prevElemID = this.state.selectedCounter.moveName;
-    prevElemID = prevElemID.replace(/\s/g, '');
+    const prevElemID = 'm' + this.state.selectedCounter._id;
 
     const prevElem = this.state.selectedCounter.moveName !== '' ? document.querySelector(`#counterBox > #${prevElemID}`) : null;
     const elem = event.currentTarget;

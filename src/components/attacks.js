@@ -11,7 +11,7 @@ const basicAttacks = (props) => {
   );
 
   return (
-    <div id='attackSection' className='col col-12-sm text-center vert-stretch'>
+    <div id='attackSection' className='col-3 col-12-sm text-center vert-stretch'>
       <div className='max-width-160 center'>         
         {buttonSelected}
         <div className='size-10'>Search By</div>

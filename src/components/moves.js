@@ -7,12 +7,12 @@ const moves = (props) => {
 
   const createMove = (name, id) => {
     return (
-      <div id={name.replace(/\s/g, '')} key={id} onClick={props.selectMove} className='selectable'>{name}</div>
+      <div id={'m' + id} key={id} onClick={props.selectMove} className='selectable'>{name}</div>
     );
   }
   const createCounter = (name, id) => {
     return (
-      <div id={name.replace(/\s/g, '')} key={id} onClick={props.selectCounter} className='selectable'>{name}</div>
+      <div id={'m' + id} key={id} onClick={props.selectCounter} className='selectable'>{name}</div>
     );
   }
   const gameConsole = props.gameConsole;
@@ -24,13 +24,13 @@ const moves = (props) => {
   return (
     <div id='movesSection' className='col-12'>
       <div className='row-flex-auto justify-between vert-stretch align-start'>
-        <div className='col col-12-sm text-center height-100'>
+        <div className='col-3 col-12-sm text-center height-100'>
           <div id='moveBox'>
             {allMoves.map(move => createMove(move.moveName, move._id))}
           </div>
         </div>
         <div className='col col-12-sm text-center size-10'>
-          <div id='textMove' className='row-header'>Move Name</div>
+          <div id='textMove' className='row-header size-18 bold'>{move.moveName}</div>
           <div className='row-flex-auto center'>
             <div className='col-4'>
               <div className='row-header'>Type</div>
@@ -75,7 +75,7 @@ const moves = (props) => {
           </div>
         </div>
 
-        <div id='counterSection' className={'col col-12-sm text-center height-100 ' + color}>
+        <div id='counterSection' className={'col-3 col-12-sm text-center height-100 ' + color}>
           <div id='counterBox'>
             {allCounters.map(move => createCounter(move.moveName, move._id))}
           </div>
