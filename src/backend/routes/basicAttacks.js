@@ -1,5 +1,5 @@
 const router = require('express').Router();
-let basicAttacks = require('../models/move.model');
+let basicAttacks = require('../models/basicAttack.model');
 
 router.route('/').get( (req, res) => {
   basicAttacks.find()

@@ -15,11 +15,10 @@ const moveSchema = new Schema({
   cancel: { type: Number },
   hitAdvantage: { type: Number },
   blockAdvantage: { type: Number },
-  flawlessBlockAdvantage: { type: Number },
-  chain: { type: String, trim: true }
+  flawlessBlockAdvantage: { type: Number }
 
 }, { collection: 'basicAttacks' });
 
-const Move = mongoose.model('Move', moveSchema);
+const Move = mongoose.model('basicAttack', moveSchema);
 
 module.exports = Move;

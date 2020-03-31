@@ -8,7 +8,6 @@ import Characters from './components/characters';
 import Punish from './components/punish';
 import MoveList from './components/moves';
 import mk11db from './backend/db/mk11/mk11db';
-console.log(mk11db);
 
 class App extends Component {
   constructor(props){
@@ -46,6 +45,20 @@ class App extends Component {
     elem.classList.toggle('selected');
     this.setState({
       selectedAttack: elem.id
+    }, () => {
+      const character = [...this.state.characterList].filter( char => char.charName === this.state.selectedCharacter)
+      let  moves;
+      if(this.state.selectedGame === 'mk11'){
+        if(this.state.selectedAttack === 'basicAttacks'){
+          moves = [...mk11db.basicAttacks].filter( move => move.charID === character[0].charID);}
+        else if(this.state.selectedAttack === 'comboAttacks'){
+            moves = [...mk11db.comboStrings].filter( move => move.charID === character[0].charID);}
+        else if(this.state.selectedAttack === 'specialAttacks'){
+          moves = [...mk11db.specialMoves].filter( move => move.charID === character[0].charID);}
+      }
+      this.setState({
+        moveList: moves
+      })
     })
   }
 
@@ -87,12 +100,17 @@ class App extends Component {
       selectedCharacter: elem.textContent
     }, () => {
       const character = [...this.state.characterList].filter( char => char.charName === this.state.selectedCharacter)
-      let  basicAttacks;
+      let  moves;
       if(this.state.selectedGame === 'mk11'){
-        basicAttacks = [...mk11db.basicAttacks].filter( move => move.charID === character[0].charID);
+        if(this.state.selectedAttack === 'basicAttacks'){
+          moves = [...mk11db.basicAttacks].filter( move => move.charID === character[0].charID);}
+        else if(this.state.selectedAttack === 'comboAttacks'){
+            moves = [...mk11db.comboStrings].filter( move => move.charID === character[0].charID);}
+        else if(this.state.selectedAttack === 'specialAttacks'){
+          moves = [...mk11db.specialMoves].filter( move => move.charID === character[0].charID);}
       }
       this.setState({
-        moveList: basicAttacks
+        moveList: moves
       })
     })
   }
@@ -111,6 +129,9 @@ class App extends Component {
   }
 
   howToPunishHandler = () => {
+    if(this.state.selectedPunisher === '' 
+    || this.state.selectedCharacter === ''
+    || this.state.selectedMove.moveName === ''){return}
     const attacker = [...this.state.characterList].filter( char => char.charName === this.state.selectedCharacter);
     const defender = [...this.state.characterList].filter( char => char.charName === this.state.selectedPunisher);
     let allAttackerMoves;
