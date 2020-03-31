@@ -130,7 +130,7 @@ body {
   text-align: left;
   margin: auto;
   max-width: 180px;
-  max-height: 120px;
+  max-height: 140px;
   white-space: normal;
   overflow-y: scroll;
   background-color: #777;
@@ -143,17 +143,14 @@ body {
   text-align: left;
   margin: auto;
   max-width: 180px;
-  max-height: 120px;
+  max-height: 140px;
   white-space: normal;
   overflow-y: scroll;
   background-color: #777;
   border: 1px solid #555;
 }
 
-#movesSection {
-  margin: 4px 0!important;
-  /* max-height: 240px; */
-}
+#movesSection { padding: 10px 0; }
 
 .height-100{ height: 100%!important;}
 #moveBox {
@@ -161,8 +158,8 @@ body {
   font-size: 18px;
   text-align: left;
   margin: auto;
-  max-width: 180px;
-  max-height: 240px;
+  max-width: 220px;
+  max-height: 180px;
   height: 100%;
   white-space: normal;
   overflow-y: auto;
@@ -187,8 +184,8 @@ body {
   font-size: 18px;
   text-align: left;
   margin: auto;
-  max-width: 180px;
-  max-height: 240px;
+  max-width: 220px;
+  max-height: 180px;
   height: 100%;
   white-space: normal;
   overflow-y: auto;

@@ -1,9 +1,8 @@
 import React from 'react';
 
 
-const movesFooter = (props) => {
+const counterDesc = (props) => {
   const gameConsole = props.gameConsole;
-  const move = props.moveSelected;
   const counter = props.counterSelected;
   let color = 'consoleBG-universal';
 
@@ -11,15 +10,9 @@ const movesFooter = (props) => {
   if (gameConsole === 'ps4'){ color = 'consoleBG-ps4'; }
 
   return (
-    <div id='movesFooterSection' className='col-12'>
+    <div id='counterDescSection' className={'col col-12-sm size-10 ' + color}>
       <div className='row-flex-auto justify-between vert-stretch align-start'>
-        <div className='col-3 col-12-sm text-center height-100 p-t-5'>
-          <div className='size-12'>
-            <div className='row-header'>Input</div>
-            <div>{move.input}</div>
-          </div>
-        </div>
-        <div id='counterDesc' className={'col col-12-sm text-center size-10 ' + color}>
+        <div className='col col-12-sm text-center'>
           <div id='textMove' className={'size-18 bold row-header-2 ' + color + '-btn'}>{counter.moveName}</div>
           <div className='row-flex-auto center'>
             <div className='col-4'>
@@ -35,6 +28,7 @@ const movesFooter = (props) => {
               <div id='textChipDamage'>{counter.chipDamage}</div>
             </div>
           </div>
+
           <div className='row-flex-auto center'>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Block Advantage</div>
@@ -49,6 +43,7 @@ const movesFooter = (props) => {
               <div id='textCancel'>{counter.cancel}</div>
             </div>
           </div>
+
           <div className='row-flex-auto center'>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Startup</div>
@@ -65,15 +60,9 @@ const movesFooter = (props) => {
           </div>
         </div>
 
-        <div id='counterSection' className={'col-3 col-12-sm text-center height-100 ' + color}>
-          <div className='size-12'>
-            <div className={'row-header-2 ' + color + '-btn'}>Input</div>
-            <div>{counter.input}</div>
-          </div>
-        </div>
       </div>
     </div>
   )
 };
 
-export default movesFooter;
+export default counterDesc;

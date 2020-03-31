@@ -18,7 +18,7 @@ const characters = (props) => {
   return (
     <div id='punishSection' className={'col-3 col-12-sm ' + color}>
       <div className='row-flex-auto center vert-stretch'>
-        <div className='col-10-m12-12 text-center'>
+        <div className='col-10-m12-12 text-center m-b-10'>
           <div className='size-12'>Defender</div>
           <div id='punisherBox'>
             {allChars.map(char => createChar(char.charName, char._id))}

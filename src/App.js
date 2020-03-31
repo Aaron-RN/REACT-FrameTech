@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 // import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './css/App.css';
 import './css/ARN-framework.css';
-import Games from './components/game';
-import Attacks from './components/attacks';
-import Characters from './components/characters';
-import Punish from './components/punish';
-import MoveList from './components/moves';
-import MovesFooter from './components/movesFooter';
+import Games from './components/header/game';
+import Attacks from './components/header/attacks';
+import Characters from './components/header/characters';
+import Punish from './components/header/punish';
+import MoveList from './components/body/moves';
+import MoveDesc from './components/body/movesDesc';
+import CounterList from './components/body/counters';
+import MoveInput from './components/footer/movesInput';
+import CounterDesc from './components/footer/countersDesc';
+import CounterInput from './components/footer/countersInput';
 import mk11db from './backend/db/mk11/mk11db';
 
 class App extends Component {
@@ -211,16 +215,16 @@ class App extends Component {
         <div className="bg-responsive-size hide"></div>
         <button type="button" className="debug-toggle">Debug Toggle</button>
         <main>
-          <header id='topSection' className='row-flex-auto center'>
+          <header id='topSection' className='row-flex-auto center m-b-5'>
             <Games 
               selectGame={this.selectGameHandler}
+              selectConsole={this.selectConsoleHandler}
             />
             <Attacks 
               click={this.selectAttackHandler}
               select={this.selectSearchByHandler}
             />
             <Characters 
-              selectConsole={this.selectConsoleHandler}
               allCharacters={this.state.characterList}
               selectCharacter={this.selectCharacterHandler}
               gameSelected = {this.state.selectedGame}
@@ -232,19 +236,28 @@ class App extends Component {
               gameConsole = {this.state.gamingConsole}
             />
           </header>
-          <div id='middleSection' className='row-flex-auto center'>
+          <div id='middleSection' className='row-flex-auto center m-b-5'>
             <MoveList
               selectMove={this.selectMoveHandler}
-              selectCounter={this.selectCounterHandler}
               allMoves={this.state.moveList}
+            />
+            <MoveDesc moveSelected={this.state.selectedMove} />
+            <CounterList
+              selectCounter={this.selectCounterHandler}
               allCounters={this.state.counterList}
-              moveSelected={this.state.selectedMove}
               gameConsole = {this.state.gamingConsole}
             />
           </div>
           <footer id='bottomSection' className='row-flex-auto center'>
-            <MovesFooter
+            <MoveInput
               moveSelected={this.state.selectedMove}
+              gameConsole = {this.state.gamingConsole}
+            />
+            <CounterDesc
+              counterSelected={this.state.selectedCounter}
+              gameConsole = {this.state.gamingConsole}
+            />
+            <CounterInput
               counterSelected={this.state.selectedCounter}
               gameConsole = {this.state.gamingConsole}
             />
