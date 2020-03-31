@@ -3,8 +3,8 @@
 
 function InitializeFramework( state = 0) {
   let allElements = document.querySelectorAll('*');
-  const bgSize = document.querySelector('.bg-responsive-size');
-  const debugButton = document.querySelector('.debug-toggle');
+  // const bgSize = document.querySelector('.bg-responsive-size');
+  // const debugButton = document.querySelector('.debug-toggle');
   
   const allColClasses = [];
 
@@ -51,15 +51,15 @@ function InitializeFramework( state = 0) {
       }
     }
   }
-  function DebugToggle() {
-    bgSize.classList.toggle('hide');
-    for (let i = 0; i < allElements.length; i += 1) {
-      allElements[i].classList.toggle('debug');
-    }
-  }
+  // function DebugToggle() {
+  //   bgSize.classList.toggle('hide');
+  //   for (let i = 0; i < allElements.length; i += 1) {
+  //     allElements[i].classList.toggle('debug');
+  //   }
+  // }
 
   if(state === 0){
-      debugButton.addEventListener('click', () => { DebugToggle(); });
+      // debugButton.addEventListener('click', () => { DebugToggle(); });
       PopulateColClasses();
       ColCreation();
   }
