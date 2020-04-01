@@ -19,6 +19,7 @@ body {
 .app-main {
   border: 4px solid #333;
   margin-bottom: 1em;
+  box-shadow: 5px 5px 10px 2px #333;
 }
 .brand{position: absolute; top: 0; left: 0;}
 .brand-icon{
@@ -77,10 +78,23 @@ body {
 }
 
 .selected { 
+  font-weight: bold;
   color: wheat; margin-bottom: -1px;
-  border-bottom: 1px solid yellowgreen;
+  border-bottom: 1px solid yellowgreen!important;
   border-radius: 5px;
 }
+
+.selectedOption { 
+  font-weight: bold;
+  color: #333; margin-bottom: -1px;
+  background-color: #EEE;
+  border-bottom: 1px solid yellowgreen!important;
+  border-radius: 4px;
+}
+.selectedOption:hover{
+  transform: scale(1.025);
+}
+
 #gameSection{
   background-color: #3c3c3c;
   border: 1px solid #444;
@@ -93,6 +107,7 @@ body {
   background-color: #3c3c3c;
   padding: 0.5em;
 }
+
 
 #consoleSection {
   background-color: #3c3c3c;
@@ -152,6 +167,7 @@ body {
   overflow-y: scroll;
   background-color: #777;
   border: 1px solid #555;
+  box-shadow: 5px 5px 10px 2px #222;
 }
 
 #punisherBox {
@@ -163,8 +179,13 @@ body {
   max-height: 140px;
   white-space: normal;
   overflow-y: scroll;
-  background-color: #777;
-  border: 1px solid #555;
+  color: #DDD;
+  background-color: #555;
+  border: 1px solid #333;
+  box-shadow: 5px 5px 10px 2px #333;
+}
+#punisherBox > .selectable{
+  border-bottom: 1px solid #666;
 }
 
 #movesSection { padding: 10px 0; }
@@ -180,20 +201,28 @@ body {
   height: 100%;
   white-space: normal;
   overflow-y: auto;
-  background-color: #777;
-  border: 1px solid #555;
+  color: #DDD;
+  background-color: #444;
+  border: 1px solid #333;
+  box-shadow: 5px 5px 10px 2px #222;
+}
+#moveBox > .selectable{
+  border-bottom: 1px solid #555;
 }
 .row-header{
   background-color: #333;
   padding: 2px;
   margin: 8px 0;
   border-radius: 5px;
+  box-shadow: 2px 2px 8px 1px #222;
 }
 .row-header-2{
   /* background-color: #663535; */
   padding: 2px;
   margin: 8px 0;
   border-radius: 5px;
+  /* box-shadow: 2px 2px 8px 1px #444; */
+  box-shadow: 2px 2px 8px 1px rgba(0,0,0,0.3);
 }
 #counterSection{padding: 10px 0;}
 #counterBox {
@@ -206,8 +235,13 @@ body {
   height: 100%;
   white-space: normal;
   overflow-y: auto;
-  background-color: #777;
-  border: 1px solid #555;
+  color: #DDD;
+  background-color: #555;
+  border: 1px solid #333;
+  box-shadow: 5px 5px 10px 2px #333;
+}
+#counterBox > .selectable{
+  border-bottom: 1px solid #666;
 }
 
 /* Media queries */

@@ -32,7 +32,7 @@ const counterDesc = (props) => {
           <div className='row-flex-auto center'>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Block Advantage</div>
-              <div id='textBlock'>{counter.blockAdvantage}</div>
+              <div id='textBlock'>{counter.blockAdvantage===99? 'N/A' : counter.blockAdvantage}</div>
             </div>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Hit Advantage</div>
@@ -40,7 +40,7 @@ const counterDesc = (props) => {
             </div>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Cancel</div>
-              <div id='textCancel'>{counter.cancel}</div>
+              <div id='textCancel'>{counter.cancel===99? 'N/A' : counter.cancel}</div>
             </div>
           </div>
 

@@ -15,11 +15,11 @@ const basicAttacks = (props) => {
       <div className='max-width-160 center'>         
         {buttonSelected}
         <div className='size-10'>Search By</div>
-        <select id="searchBy" className='size-12' onChange={props.select}>
-          <option value="name">Name</option>
+        <select id="searchBy" className='size-10 selectedOption' onChange={props.select}>
+          <option value="moveName">Name</option>
           <option value="input">Input</option>
-          <option value="block">Block Advantage</option>
-          <option value="hit">Hit Advantage</option>
+          <option value="blockAdvantage">Block Advantage</option>
+          <option value="hitAdvantage">Hit Advantage</option>
           <option value="recovery">Recovery</option>
         </select>
       </div>

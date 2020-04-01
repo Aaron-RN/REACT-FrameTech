@@ -11,12 +11,12 @@ const gameSelect = (props) => {
           <div className='brand-text'>FrameTech</div>
         </div>
         <div className='size-10'>Game</div>
-        <select id="gameSelected" className='size-12 m-b-10' onChange={props.selectGame}>
+        <select id="gameSelected" className='size-10 m-b-10 selectedOption' onChange={props.selectGame}>
           <option value="mk11">Mortal Kombat 11</option>
           <option value="inj2" disabled>Injustice 2</option>
         </select>
         <div className='size-10'>Gaming Console</div>
-        <select id="gameConsole" className='size-12  m-b-5' onChange={props.selectConsole}>
+        <select id="gameConsole" className='size-10  m-b-5 selectedOption' onChange={props.selectConsole}>
           <option value="universal">Universal</option>
           <option value="xbox">Xbox</option>
           <option value="ps4">PS4</option>

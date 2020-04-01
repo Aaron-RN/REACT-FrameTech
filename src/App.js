@@ -21,7 +21,7 @@ class App extends Component {
     const characters = [...mk11db.characters];
     this.state = {
       selectedAttack: 'basicAttacks',
-      searchBy: 'Name',
+      searchBy: 'moveName',
       gamingConsole: 'Universal',
       selectedGame: 'mk11',
       characterList: characters,
@@ -191,7 +191,7 @@ class App extends Component {
     const elem = event.currentTarget;
     if(prevElem) prevElem.classList.remove('selected');
     elem.classList.toggle('selected');
-    const selectedMove = [...this.state.moveList].filter( move => move.moveName === elem.textContent);
+    const selectedMove = [...this.state.moveList].filter( move => move.moveName === elem.getAttribute('data-name'));
     this.setState({
       selectedMove: selectedMove[0]
     })
@@ -239,6 +239,7 @@ class App extends Component {
             <MoveList
               selectMove={this.selectMoveHandler}
               allMoves={this.state.moveList}
+              searchCondition={this.state.searchBy}
             />
             <MoveDesc moveSelected={this.state.selectedMove} />
             <CounterList

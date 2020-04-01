@@ -27,7 +27,7 @@ const movesDesc = (props) => {
           <div className='row-flex-auto center'>
             <div className='col-4'>
               <div className='row-header'>Block Advantage</div>
-              <div id='textBlock'>{move.blockAdvantage}</div>
+              <div id='textBlock'>{move.blockAdvantage===99? 'N/A' : move.blockAdvantage}</div>
             </div>
             <div className='col-4'>
               <div className='row-header'>Hit Advantage</div>
@@ -35,7 +35,7 @@ const movesDesc = (props) => {
             </div>
             <div className='col-4'>
               <div className='row-header'>Cancel</div>
-              <div id='textCancel'>{move.cancel}</div>
+              <div id='textCancel'>{move.cancel===99? 'N/A' : move.cancel}</div>
             </div>
           </div>
           
