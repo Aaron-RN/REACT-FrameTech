@@ -16,11 +16,11 @@ const movesDesc = (props) => {
             </div>
             <div className='col-4'>
               <div className='row-header'>Damage</div>
-              <div id='textDamage'>{move.damage}</div>
+              <div id='textDamage'>{move.damage===99? 'N/A' : move.damage}</div>
             </div>
             <div className='col-4'>
               <div className='row-header'>Chip Damage</div>
-              <div id='textChipDamage'>{move.chipDamage}</div>
+              <div id='textChipDamage'>{move.chipDamage===99? 'N/A' : move.chipDamage}</div>
             </div>
           </div>
 
@@ -31,7 +31,7 @@ const movesDesc = (props) => {
             </div>
             <div className='col-4'>
               <div className='row-header'>Hit Advantage</div>
-              <div id='textHit'>{move.hitAdvantage}</div>
+              <div id='textHit'>{move.hitAdvantage===99? 'N/A' : move.hitAdvantage}</div>
             </div>
             <div className='col-4'>
               <div className='row-header'>Cancel</div>
@@ -46,7 +46,7 @@ const movesDesc = (props) => {
             </div>
             <div className='col-4'>
               <div className='row-header'>Active</div>
-              <div id='textActive'>{move.active}</div>
+              <div id='textActive'>{move.active===99? 'N/A' : move.active}</div>
             </div>
             <div className='col-4'>
               <div className='row-header'>Recovery</div>

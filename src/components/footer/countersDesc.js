@@ -21,11 +21,11 @@ const counterDesc = (props) => {
             </div>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Damage</div>
-              <div id='textDamage'>{counter.damage}</div>
+              <div id='textDamage'>{counter.damage===99? 'N/A' : counter.damage}</div>
             </div>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Chip Damage</div>
-              <div id='textChipDamage'>{counter.chipDamage}</div>
+              <div id='textChipDamage'>{counter.chipDamage===99? 'N/A' : counter.chipDamage}</div>
             </div>
           </div>
 
@@ -36,7 +36,7 @@ const counterDesc = (props) => {
             </div>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Hit Advantage</div>
-              <div id='textHit'>{counter.hitAdvantage}</div>
+              <div id='textHit'>{counter.hitAdvantage===99? 'N/A' : counter.hitAdvantage}</div>
             </div>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Cancel</div>
@@ -51,7 +51,7 @@ const counterDesc = (props) => {
             </div>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Active</div>
-              <div id='textActive'>{counter.active}</div>
+              <div id='textActive'>{counter.active===99? 'N/A' : counter.active}</div>
             </div>
             <div className='col-4'>
               <div className={'row-header-2 ' + color + '-btn'}>Recovery</div>

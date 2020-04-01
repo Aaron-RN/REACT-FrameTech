@@ -8,7 +8,7 @@ const movesInput = (props) => {
 
 
   const createMove = (name, id, searchOrder = 'none') => {
-    console.log(searchBy);
+    if(!id){return;}
     return (
       <div id={'m' + id} key={id} onClick={props.selectMove} className='selectable' data-name={name}>
         {searchOrder===99? 'Unblockable': searchOrder}</div>
