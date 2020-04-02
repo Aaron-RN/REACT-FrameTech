@@ -21,7 +21,7 @@ body {
   margin-bottom: 1em;
   box-shadow: 5px 5px 10px 2px #333;
 }
-.brand{position: absolute; top: 0; left: 0;}
+.brand{position: absolute; top: 10px; left: 20px;}
 .brand-icon{
   position: relative;
   display: inline-block;

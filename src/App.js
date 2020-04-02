@@ -20,6 +20,7 @@ class App extends Component {
     super(props);
     const characters = [...mk11db.characters];
     this.state = {
+      window: {width: window.innerWidth, height: window.innerHeight},
       selectedAttack: 'basicAttacks',
       searchBy: 'moveName',
       gamingConsole: 'Universal',
@@ -42,6 +43,21 @@ class App extends Component {
         startup: 0, active: 0, recovery: 0, chain:''
       },
     }
+  }
+
+  componentDidMount(){
+    window.onresize = this.setWindowBounds;
+  }
+
+  setWindowBounds = () => {
+    let windowWidth =  window.innerWidth || document.documentElement.clientWidth
+      || document.body.clientWidth;
+    let windowHeight =  window.innerHeight || document.documentElement.clientHeight
+      || document.body.clientHeight;
+    const newWindow = {window: windowWidth, height: windowHeight};
+    this.setState({
+      window: newWindow
+    });
   }
 
   selectAttackHandler = (event) => {
@@ -178,7 +194,6 @@ class App extends Component {
       "Calculated Startup: " + (calcStartup));
     }
     counters = [...allDefenderMoves].filter( move => move.startup < calcStartup);
-    console.log('mk11', counters);
     this.setState({
       counterList: counters
     })
@@ -210,58 +225,142 @@ class App extends Component {
     })
   }
 
+  headerLayout = () => {
+    if (this.state.window.width < 720) {
+      return (
+        <header id='topSection' className='row-flex-auto center m-b-5'>
+          <Games
+            selectGame={this.selectGameHandler}
+            selectConsole={this.selectConsoleHandler}
+          />
+          <Attacks 
+            click={this.selectAttackHandler}
+            select={this.selectSearchByHandler}
+          />
+          <Characters 
+            allCharacters={this.state.characterList}
+            selectCharacter={this.selectCharacterHandler}
+            gameSelected = {this.state.selectedGame}
+          />
+        </header>
+      );
+    }
+    else{
+      return (
+        <header id='topSection' className='row-flex-auto center m-b-5'>
+          <Games 
+            selectGame={this.selectGameHandler}
+            selectConsole={this.selectConsoleHandler}
+          />
+          <Attacks 
+            click={this.selectAttackHandler}
+            select={this.selectSearchByHandler}
+          />
+          <Characters 
+            allCharacters={this.state.characterList}
+            selectCharacter={this.selectCharacterHandler}
+            gameSelected = {this.state.selectedGame}
+          />
+          <Punish 
+            click={this.howToPunishHandler}
+            allCharacters={this.state.characterList}
+            selectPunisher={this.selectPunisherHandler}
+            gameConsole = {this.state.gamingConsole}
+          />
+        </header>
+      )
+    }
+  }
+
+  middleLayout = () => {
+    if (this.state.window.width < 720) {
+      return (
+        <div id='middleSection' className='row-flex-auto center m-b-5'>
+          <MoveList
+            selectMove={this.selectMoveHandler}
+            allMoves={this.state.moveList}
+            searchCondition={this.state.searchBy}
+          />
+          <MoveDesc moveSelected={this.state.selectedMove} />
+          <MoveInput
+              moveSelected={this.state.selectedMove}
+              gameConsole = {this.state.gamingConsole}
+          />
+        </div>
+      );
+    }
+    else{
+      return (
+        <div id='middleSection' className='row-flex-auto center m-b-5'>
+          <MoveList
+            selectMove={this.selectMoveHandler}
+            allMoves={this.state.moveList}
+            searchCondition={this.state.searchBy}
+          />
+          <MoveDesc moveSelected={this.state.selectedMove} />
+          <CounterList
+            selectCounter={this.selectCounterHandler}
+            allCounters={this.state.counterList}
+            gameConsole = {this.state.gamingConsole}
+          />
+      </div>
+      )
+    }
+  }
+
+  footerLayout = () => {
+    if (this.state.window.width < 720) {
+      return (
+        <footer id='bottomSection' className='row-flex-auto center'>
+          <Punish 
+            click={this.howToPunishHandler}
+            allCharacters={this.state.characterList}
+            selectPunisher={this.selectPunisherHandler}
+            gameConsole = {this.state.gamingConsole}
+          />
+          <CounterList
+            selectCounter={this.selectCounterHandler}
+            allCounters={this.state.counterList}
+            gameConsole = {this.state.gamingConsole}
+          />
+          <CounterDesc
+            counterSelected={this.state.selectedCounter}
+            gameConsole = {this.state.gamingConsole}
+          />
+          <CounterInput
+            counterSelected={this.state.selectedCounter}
+            gameConsole = {this.state.gamingConsole}
+          />
+        </footer>
+      );
+    }
+    else{
+      return (
+        <footer id='bottomSection' className='row-flex-auto center'>
+          <MoveInput
+            moveSelected={this.state.selectedMove}
+            gameConsole = {this.state.gamingConsole}
+          />
+          <CounterDesc
+            counterSelected={this.state.selectedCounter}
+            gameConsole = {this.state.gamingConsole}
+          />
+          <CounterInput
+            counterSelected={this.state.selectedCounter}
+            gameConsole = {this.state.gamingConsole}
+          />
+        </footer>
+      )
+    }
+  }
+
   render(){
     return (
       <div className="App container">
         <main className='app-main'>
-          <header id='topSection' className='row-flex-auto center m-b-5'>
-            <Games 
-              selectGame={this.selectGameHandler}
-              selectConsole={this.selectConsoleHandler}
-            />
-            <Attacks 
-              click={this.selectAttackHandler}
-              select={this.selectSearchByHandler}
-            />
-            <Characters 
-              allCharacters={this.state.characterList}
-              selectCharacter={this.selectCharacterHandler}
-              gameSelected = {this.state.selectedGame}
-            />
-            <Punish 
-              click={this.howToPunishHandler}
-              allCharacters={this.state.characterList}
-              selectPunisher={this.selectPunisherHandler}
-              gameConsole = {this.state.gamingConsole}
-            />
-          </header>
-          <div id='middleSection' className='row-flex-auto center m-b-5'>
-            <MoveList
-              selectMove={this.selectMoveHandler}
-              allMoves={this.state.moveList}
-              searchCondition={this.state.searchBy}
-            />
-            <MoveDesc moveSelected={this.state.selectedMove} />
-            <CounterList
-              selectCounter={this.selectCounterHandler}
-              allCounters={this.state.counterList}
-              gameConsole = {this.state.gamingConsole}
-            />
-          </div>
-          <footer id='bottomSection' className='row-flex-auto center'>
-            <MoveInput
-              moveSelected={this.state.selectedMove}
-              gameConsole = {this.state.gamingConsole}
-            />
-            <CounterDesc
-              counterSelected={this.state.selectedCounter}
-              gameConsole = {this.state.gamingConsole}
-            />
-            <CounterInput
-              counterSelected={this.state.selectedCounter}
-              gameConsole = {this.state.gamingConsole}
-            />
-          </footer>
+          {this.headerLayout()}
+          {this.middleLayout()}
+          {this.footerLayout()}
         </main>
       </div>
     );
