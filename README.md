@@ -3,7 +3,7 @@ Web based Application using SQLite database to store frame data of all moves fro
 
 ![screenshot](./screenshot.png)
 
-## [Live Link](https://raw.githack.com/Aaron-RN/JS-WeatherApp/weather-me-this/dist/index.html)
+## [Live Link](https://frametech.netlify.app/)
 
 ## Built With
 
