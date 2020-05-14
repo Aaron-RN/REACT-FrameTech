@@ -3,13 +3,11 @@ Web based Application using Mongo Atlas database to store frame data of all move
 
 You can sort and view moves by Startup frames, Type (Overhead, Low, ...etc.), Hit Advantage, Block Advantage, Recovery frames, Name or Input.
 
-#### Data supplied is for Mortal Kombat 11
-- Includes patch notes for all characters prior to Joker and Spawn release
-
 ![screenshot](./screenshot.png)
 
 ## Database Version
-Data based on patch notes prior to Joker's release
+#### Data supplied for Mortal Kombat 11
+- Includes patches for all characters prior to Joker and Spawn release
 
 ## [Live Link](https://frametech.netlify.app/)
 
