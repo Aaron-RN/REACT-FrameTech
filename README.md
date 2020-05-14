@@ -3,6 +3,9 @@ Web based Application using Mongo Atlas database to store frame data of all move
 
 ![screenshot](./screenshot.png)
 
+## Database Version
+Data based on patch notes prior to Joker's release
+
 ## [Live Link](https://frametech.netlify.app/)
 
 ## Built With
