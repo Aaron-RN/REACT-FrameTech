@@ -15,7 +15,7 @@ import CounterInput from './components/footer/countersInput';
 
 import mk11db from './backend/db/mk11/mk11db';
 
-const windowWidth =  window.innerWidth || document.documentElement.clientWidth
+const windowWidth = () => window.innerWidth || document.documentElement.clientWidth
       || document.body.clientWidth;
 
 class App extends Component {
@@ -47,21 +47,6 @@ class App extends Component {
       },
     }
   }
-
-  // componentDidMount(){
-  //   window.onresize = this.setWindowBounds;
-  // }
-
-  // setWindowBounds = () => {
-  //   let windowWidth =  window.innerWidth || document.documentElement.clientWidth
-  //     || document.body.clientWidth;
-  //   let windowHeight =  window.innerHeight || document.documentElement.clientHeight
-  //     || document.body.clientHeight;
-  //   const newWindow = {window: windowWidth, height: windowHeight};
-  //   this.setState({
-  //     window: newWindow
-  //   });
-  // }
 
   selectAttackHandler = (event) => {
     const prevElem = document.querySelector(`#${this.state.selectedAttack}`);
@@ -229,7 +214,7 @@ class App extends Component {
   }
 
   headerLayout = () => {
-    if (windowWidth < 720) {
+    if (windowWidth() < 720) {
       return (
         <header id='topSection' className='row-flex-auto center m-b-5'>
           <Games
@@ -276,7 +261,7 @@ class App extends Component {
   }
 
   middleLayout = () => {
-    if (windowWidth < 720) {
+    if (windowWidth() < 720) {
       return (
         <div id='middleSection' className='row-flex-auto center m-b-5'>
           <MoveList
@@ -312,7 +297,7 @@ class App extends Component {
   }
 
   footerLayout = () => {
-    if (windowWidth < 720) {
+    if (windowWidth() < 720) {
       return (
         <footer id='bottomSection' className='row-flex-auto center'>
           <Punish 

@@ -21,6 +21,8 @@ const basicAttacks = (props) => {
           <option value="blockAdvantage">Block Advantage</option>
           <option value="hitAdvantage">Hit Advantage</option>
           <option value="recovery">Recovery</option>
+          <option value="startup">Startup</option>
+          <option value="type">Type</option>
         </select>
       </div>
     </div>
