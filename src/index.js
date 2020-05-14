@@ -4,6 +4,13 @@ import './css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import {InitializeFramework} from './js/arn-framework';
+import favIcon from './images/FrameTech.ico';
+
+const favIconLink = document.createElement('link');
+favIconLink.setAttribute('rel', 'icon');
+favIconLink.setAttribute('type', 'image/png');
+favIconLink.setAttribute('href', favIcon);
+document.querySelector('head').appendChild(favIconLink);
 
 ReactDOM.render(
   <React.StrictMode>
